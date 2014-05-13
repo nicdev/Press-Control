@@ -14,7 +14,7 @@ class PressControlServiceProvider extends ServiceProvider {
     {
         $this->app->bind('PressControl', function()
         {
-            return new PressControl;
+            return new PressControl();
         });
     }
 
