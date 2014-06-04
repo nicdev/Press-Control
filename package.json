@@ -1,0 +1,30 @@
+{  
+  "name": "press-control",
+  "version": "0.0.1",
+  "description": "Manage multiple WordPress installations in one place",
+  "main": "public/index.php",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/nicdev/Press-Control.git"
+  },
+  "keywords": [
+    "wordpress",
+    "multisite",
+    "manage"
+  ],
+  "author": "Nic Rosental",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nicdev/Press-Control/issues"
+  },
+  "homepage": "https://github.com/nicdev/Press-Control",
+  "dependencies" :
+  { 
+    "bower" : "*"
+  }
+
+  
+}

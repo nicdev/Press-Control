@@ -18,3 +18,5 @@ Route::get('/', function()
 	//dd(App::make('PressControl'));
 	
 });
+
+Route::get('dashboard', 'DashboardController@index');
