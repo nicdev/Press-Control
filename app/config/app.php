@@ -119,7 +119,8 @@ return array(
 		'Illuminate\Validation\ValidationServiceProvider',
 		'Illuminate\View\ViewServiceProvider',
 		'Illuminate\Workbench\WorkbenchServiceProvider',
-		'Epiclabs\Presscontrol\PressControlServiceProvider'
+		'Epiclabs\Presscontrol\PressControlServiceProvider',
+		'Way\Generators\GeneratorsServiceProvider'
 
 	),
 
