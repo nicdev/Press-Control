@@ -1,5 +1,12 @@
 <?php
 
+/**
+ * Each "site" is a WordPress instance
+ */
+
 class Site extends \Eloquent {
-	protected $fillable = [];
+
+	protected $table = 'sites';
+	protected $fillable = ['title', 'filepath'];
+	
 }

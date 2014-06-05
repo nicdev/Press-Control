@@ -19,4 +19,8 @@ Route::get('/', function()
 	
 });
 
+//Main dashboard
 Route::get('dashboard', 'DashboardController@index');
+
+//Setup Wizard
+Route::get('wizard', 'DashboardController@install');
