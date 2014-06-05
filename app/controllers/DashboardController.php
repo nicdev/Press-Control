@@ -24,11 +24,10 @@ class DashboardController extends BaseController {
 
 		$this->pc->findDirectories();
 		$this->pc->saveDirectories();
-		//dd($this->pc->directories);
-		// foreach($this->pc->directories as $d)
-		// {
-		// 	$site = Site::firstOrCreate(['title' => rand(1,4),'filepath' => $d]);			
-		// }
+		
+		$message = "Installation complete";
+
+		return View::make('dashboard.main')->with('message', $message);
 
 	}
 
@@ -38,7 +37,11 @@ class DashboardController extends BaseController {
     
     public function index()
     {
-        return View::make('dashboard.main');
+
+    	View::composer('dashboard.main', 'PressControlComposer');
+    	//$sites = Site::all(); //@TODO refactor to a view composer
+
+        return View::make('dashboard.main'); //->with('sites', $sites);
     }
 
 }

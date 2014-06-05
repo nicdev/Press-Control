@@ -5,7 +5,9 @@
 @stop
 
 @section('content')
-	
+	@foreach ($sites as $s)
+    	<p>Site: {{ $s->title }}</p>
+	@endforeach
 @stop
 
 @section('footer')

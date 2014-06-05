@@ -16,6 +16,11 @@ class PressControlServiceProvider extends ServiceProvider {
         {
             return new PressControl();
         });
+
+        $this->app->bind('PressControlComposer', function()
+        {
+            return new PressControlComposer();
+        });
     }
 
 }
