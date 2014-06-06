@@ -8,32 +8,29 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <title></title>
         <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
-        <link rel="stylesheet" href="css/bootstrap.min.css">
-        <style>
-            body {
-                padding-top: 50px;
-                padding-bottom: 20px;
-            }
-        </style>
-        <link rel="stylesheet" href="css/bootstrap-theme.min.css">
-        <link rel="stylesheet" href="css/main.css">
-
-        <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+        <link rel="stylesheet" href="css/prod/styles.css">
+        <script src="packages/modernizr/modernizr.js"></script>
     </head>
     <body>
-        <!--[if lt IE 7]>
+        <!--[if lt IE 9]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
-    @section('header')
-     <h1>PressControl</h1>
-    @show
+    <div class="container-fluid">
 
-    <div class="container">
-      @yield('content')
-      @yield('footer')
+        @section('header')
+            <div class="row">
+                <div class="col-xs-12">
+                    <h1>PressControl</h1>
+                </div>
+            </div>
+        @show
+
+        @yield('content')
+        @yield('footer')
+
     </div> <!-- /container -->        
 
     @section('analytics')

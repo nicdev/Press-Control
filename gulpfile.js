@@ -7,13 +7,14 @@ var root = __dirname;
 
 gulp.task('default', ['styles', 
 					  'watch',
-					  'vendor-prefix',
+					  //'vendor-prefix',
 					  'minify-css']);
 
 //Keep an eye on them folders
 
 gulp.task('watch', function() {
-    gulp.watch(root + '/public/css/less/*.less', ['styles', 'vendor-prefix', 'minify-css']);
+    //gulp.watch(root + '/public/css/less/*.less', ['styles', 'vendor-prefix', 'minify-css']);
+    gulp.watch(root + '/public/css/less/*.less', ['styles', 'minify-css']);
     gulp.watch(root + '/public/js/*.js', []);
 });
 

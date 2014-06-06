@@ -1,0 +1,37 @@
+/* Sitewide */
+
+a {
+	transition: all 0.3s ease;
+
+	&:hover {
+		text-decoration: none;
+	}
+}
+
+/* Dashboard controls */
+
+.dashboard-controls {
+
+	margin-left: -30px;
+	font-size: 1.5em;
+
+	ul {
+		padding-left: 30px;
+	}
+
+	li {
+		list-style-type: none;
+		background-color: @colorDashNavBackground;
+		padding: 15px 0 15px 15px;
+
+		a {
+			color: @colorDashNavLinks;
+
+			&:hover {
+				color: darken(@colorDashNavLinks, 40%);
+			}
+			// color: rgba(0, 0, 0, .2);
+			// text-shadow: 1px 1px 1px #666, 0 0 0 #000, 1px 1px 1px #666;
+		}
+	}
+}
