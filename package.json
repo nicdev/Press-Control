@@ -1,4 +1,4 @@
-{  
+{
   "name": "press-control",
   "version": "0.0.1",
   "description": "Manage multiple WordPress installations in one place",
@@ -21,10 +21,11 @@
     "url": "https://github.com/nicdev/Press-Control/issues"
   },
   "homepage": "https://github.com/nicdev/Press-Control",
-  "dependencies" :
-  { 
-    "bower" : "*"
+  "dependencies": {
+    "bower": "*",
+    "gulp-autoprefixer": "*",
+    "gulp-less": "*",
+    "gulp": "*",
+    "gulp-minify-css": "^0.3.4"
   }
-
-  
 }
