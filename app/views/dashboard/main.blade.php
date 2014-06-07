@@ -17,20 +17,18 @@
 				<li><a href=# title="alerts"><i class="fa fa-bullhorn"></i> Alerts</a></li>
 			</ul>
 		</div>
+					
+		@foreach ($sites as $s)
 
-		<div class="col-xs-12 col-sm-9 col-md-10">
-						
-			@foreach ($sites as $s)
+			<div class="col-xs-12 col-sm-4 wp-instance">
+	    
+	    		<h4>{{ $s->title }}</h4>
+	    
+	    	</div>
+		
+		@endforeach
 
-				<div class="col-sm-3 col-xs-1 wp-instance">
-		    
-		    		<p>Site: {{ $s->title }}</p>
-		    
-		    	</div>
-			
-			@endforeach
 
-		</div><!-- /span12 -->
 	</div><!-- /row -->
 
 @stop

@@ -10,6 +10,7 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="css/prod/styles.css">
         <script src="packages/modernizr/modernizr.js"></script>
     </head>
@@ -22,9 +23,9 @@
 
         @section('header')
             <div class="row">
-                <div class="col-xs-12">
+                <header class="col-xs-12">
                     <h1>PressControl</h1>
-                </div>
+                </header>
             </div>
         @show
 

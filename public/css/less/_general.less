@@ -1,11 +1,21 @@
 /* Sitewide */
 
 a {
-	transition: all 0.3s ease;
+	transition: @transitionDefault;
 
 	&:hover {
 		text-decoration: none;
 	}
+}
+
+body {
+	font-size: 100%;
+    line-height: 1.6875;
+	font-family: @fontDefault;
+}
+
+header {
+	background-color: @colorHeaderBackground;
 }
 
 /* Dashboard controls */
@@ -13,7 +23,8 @@ a {
 .dashboard-controls {
 
 	margin-left: -30px;
-	font-size: 1.5em;
+	font-size: 1.7em;
+	background-color: @colorDashNavBackground;
 
 	ul {
 		padding-left: 30px;
@@ -21,17 +32,31 @@ a {
 
 	li {
 		list-style-type: none;
-		background-color: @colorDashNavBackground;
-		padding: 15px 0 15px 15px;
-
+		
 		a {
+			display: block;
+			width: 100%;
+			padding: 15px 0 15px 15px;
+			background-color: @colorDashNavBackground;
 			color: @colorDashNavLinks;
 
 			&:hover {
-				color: darken(@colorDashNavLinks, 40%);
+				transition: @transitionDefault;
+				background-color: darken(@colorDashNavBackground, 10%);
+				color: lighten(@colorDashNavLinks, 100%);
 			}
-			// color: rgba(0, 0, 0, .2);
-			// text-shadow: 1px 1px 1px #666, 0 0 0 #000, 1px 1px 1px #666;
 		}
+	}
+}
+
+/* Site instances */
+
+.wp-instance {
+	margin-top: @horizontalGutter;
+	background-color: @colorInstanceBackground;
+	margin-left: 15px;
+
+	&:nth-child(odd) {
+		background-color: lighten(@colorInstanceBackground, 20%);
 	}
 }
