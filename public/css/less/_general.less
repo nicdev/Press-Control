@@ -24,7 +24,7 @@ header {
 
 	margin-left: -30px;
 	font-size: 1.7em;
-	background-color: @colorDashNavBackground;
+	//background-color: @colorDashNavBackground;
 
 	ul {
 		padding-left: 30px;
@@ -52,9 +52,9 @@ header {
 /* Site instances */
 
 .wp-instance {
-	margin-top: @horizontalGutter;
+	margin-top: (@horizontalGutter * 2);
 	background-color: @colorInstanceBackground;
-	margin-left: 15px;
+	margin-left: (@verticalGutter * 2);
 
 	&:nth-child(odd) {
 		background-color: lighten(@colorInstanceBackground, 20%);
