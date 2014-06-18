@@ -19,8 +19,13 @@ Route::get('/', function()
 	
 });
 
-//Main dashboard
+// Main dashboard
 Route::get('dashboard', 'DashboardController@index');
 
-//Setup Wizard
+// Setup Wizard
 Route::get('wizard', 'DashboardController@install');
+
+// API controllers
+Route::controller('plugin', 'PluginController');
+Route::controller('theme', 'ThemeController');
+Route::controller('site', 'SiteController');
