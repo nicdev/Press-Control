@@ -7,9 +7,9 @@ class ThemeController extends \BaseController {
 	 *
 	 * @return Response
 	 */
-	public function index()
+	public function getIndex()
 	{
-		//
+		echo 'hurr';
 	}
 
 
@@ -18,9 +18,9 @@ class ThemeController extends \BaseController {
 	 *
 	 * @return Response
 	 */
-	public function create()
+	public function postCreate()
 	{
-		//
+
 	}
 
 
@@ -29,7 +29,7 @@ class ThemeController extends \BaseController {
 	 *
 	 * @return Response
 	 */
-	public function store()
+	public function postStore()
 	{
 		//
 	}
@@ -41,9 +41,9 @@ class ThemeController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function show($id)
+	public function anyShow($id)
 	{
-		//
+		
 	}
 
 
@@ -53,9 +53,9 @@ class ThemeController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function edit($id)
+	public function postEdit($id)
 	{
-		//
+		
 	}
 
 
@@ -65,7 +65,7 @@ class ThemeController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($id)
+	public function postUpdate($id)
 	{
 		//
 	}
@@ -77,7 +77,7 @@ class ThemeController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function destroy($id)
+	public function postDestroy($id)
 	{
 		//
 	}

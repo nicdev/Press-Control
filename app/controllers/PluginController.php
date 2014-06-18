@@ -7,9 +7,9 @@ class PluginController extends \BaseController {
 	 *
 	 * @return Response
 	 */
-	public function index()
+	public function getIndex()
 	{
-		//
+		echo 'hurr';
 	}
 
 
@@ -18,20 +18,20 @@ class PluginController extends \BaseController {
 	 *
 	 * @return Response
 	 */
-	public function create()
+	public function postCreate()
 	{
-		//
+
 	}
 
 
 	/**
 	 * Store a newly created resource in storage.
-	 *
+	 * @data a json object of plugins
 	 * @return Response
 	 */
-	public function store()
+	public function postStore($data)
 	{
-		//
+		echo $data;
 	}
 
 
@@ -41,9 +41,9 @@ class PluginController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function show($id)
+	public function anyShow($id)
 	{
-		//
+		
 	}
 
 
@@ -53,7 +53,7 @@ class PluginController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function edit($id)
+	public function postEdit($id)
 	{
 		//
 	}
@@ -65,7 +65,7 @@ class PluginController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($id)
+	public function postUpdate($id)
 	{
 		//
 	}
@@ -77,7 +77,7 @@ class PluginController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function destroy($id)
+	public function postDestroy($id)
 	{
 		//
 	}

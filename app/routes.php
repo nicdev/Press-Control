@@ -26,6 +26,6 @@ Route::get('dashboard', 'DashboardController@index');
 Route::get('wizard', 'DashboardController@install');
 
 // API controllers
-Route::controller('plugin', 'PluginController');
-Route::controller('theme', 'ThemeController');
-Route::controller('site', 'SiteController');
+Route::controller('plugins', 'PluginController');
+Route::controller('themes', 'ThemeController');
+Route::controller('sites', 'SiteController');
