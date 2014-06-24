@@ -82,6 +82,18 @@ class SiteController extends \BaseController {
 	 */
 	public function postEdit($id)
 	{
+		
+	}
+
+
+	/**
+	 * Update the specified resource in storage.
+	 *
+	 * @param  int  $id
+	 * @return Response
+	 */
+	public function postUpdate($id)
+	{
 		$site = Site::find($id);
 
 		if($site)
@@ -106,19 +118,6 @@ class SiteController extends \BaseController {
 		{
 			return Response::make('resource not found', 404);
 		}
-
-	}
-
-
-	/**
-	 * Update the specified resource in storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function postUpdate($id)
-	{
-		//
 	}
 
 
