@@ -127,7 +127,7 @@ class SiteController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function postDestroy($id)
+	public function postDelete($id)
 	{
 		$site = Site::find($id);
 
