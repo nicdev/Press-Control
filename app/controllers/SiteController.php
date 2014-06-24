@@ -60,7 +60,17 @@ class SiteController extends \BaseController {
 	 */
 	public function anyShow($id)
 	{
-		//
+		$site = Site::find($id);
+
+		if($site)
+		{
+			return Response::json($site, 200);	
+		}
+		else
+		{
+			return Response::make('resource not found', 404);
+		}
+		
 	}
 
 
@@ -72,7 +82,31 @@ class SiteController extends \BaseController {
 	 */
 	public function postEdit($id)
 	{
-		//
+		$site = Site::find($id);
+
+		if($site)
+		{
+			$input = Input::only('url','title');
+
+			if($site->validate($input))
+			{
+				$site->url = $input['url'] ?: $site->url;
+				$site->title = $input['title'] ?: $site->title;
+				$site->save();
+
+				return Response::json(['site_id' => $site->id], 204);
+			}
+			else
+			{
+				return Response::json(['error' => 'validation failed'], 400);
+			}
+
+		}
+		else
+		{
+			return Response::make('resource not found', 404);
+		}
+
 	}
 
 
