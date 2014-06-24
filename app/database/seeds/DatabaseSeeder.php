@@ -9,9 +9,13 @@ class DatabaseSeeder extends Seeder {
 	 */
 	public function run()
 	{
+
+		Site::truncate();
+
 		Eloquent::unguard();
 
-		// $this->call('UserTableSeeder');
+		$this->call('SitesTableSeeder');
+		
 	}
 
 }

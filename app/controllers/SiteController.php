@@ -20,6 +20,23 @@ class SiteController extends \BaseController {
 	 */
 	public function postCreate()
 	{
+		
+		$input = Input::only('url','title');
+		
+		$site = new Site();
+
+		if($site->validate($input))
+		{
+			$site->url = $input['url'];
+			$site->title = $input['title'];
+			$site->save();
+
+			return Response::make($site->id, 201);
+		}
+		else
+		{
+			return Response::make('validation failed', 400);	
+		}
 
 	}
 
