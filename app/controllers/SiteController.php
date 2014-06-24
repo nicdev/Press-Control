@@ -68,7 +68,7 @@ class SiteController extends \BaseController {
 		}
 		else
 		{
-			return Response::make('resource not found', 404);
+			return Response::json(['message', 'resource not found'], 404);
 		}
 		
 	}
@@ -106,7 +106,7 @@ class SiteController extends \BaseController {
 				$site->title = $input['title'] ?: $site->title;
 				$site->save();
 
-				return Response::json(['site_id' => $site->id], 204);
+				return Response::json(['message' => 'updated'], 204);
 			}
 			else
 			{
@@ -116,7 +116,7 @@ class SiteController extends \BaseController {
 		}
 		else
 		{
-			return Response::make('resource not found', 404);
+			return Response::json(['message' => 'resource not found'], 404);
 		}
 	}
 
@@ -129,7 +129,20 @@ class SiteController extends \BaseController {
 	 */
 	public function postDestroy($id)
 	{
-		//
+		$site = Site::find($id);
+
+		if($site)
+		{
+			$site->delete();
+
+			return Response::json(['message' => 'deleted'], 204);
+		}
+		else
+		{
+			return Response::json(['message', 'resource not found'], 404);	
+		}
+
+
 	}
 
 
