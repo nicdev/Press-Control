@@ -31,11 +31,11 @@ class SiteController extends \BaseController {
 			$site->title = $input['title'];
 			$site->save();
 
-			return Response::make($site->id, 201);
+			return Response::json(['site_id' => $site->id], 201);
 		}
 		else
 		{
-			return Response::make('validation failed', 400);	
+			return Response::json(['error' => 'validation failed'], 400);	
 		}
 
 	}
