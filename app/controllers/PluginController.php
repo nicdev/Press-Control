@@ -9,7 +9,7 @@ class PluginController extends \BaseController {
 	 */
 	public function getIndex()
 	{
-		echo 'hurr';
+
 	}
 
 
@@ -20,18 +20,37 @@ class PluginController extends \BaseController {
 	 */
 	public function postCreate()
 	{
+		
+		$input = Input::only('name', 'download_url', 'home_url', 'version');
+		
+		$plugin = new Plugin();
+
+		if($plugin->validate($input))
+		{
+			$plugin->name = $input['name'];
+			$plugin->download_url = $input['download_url'];
+			$plugin->home_url = $input['home_url'];
+			$plugin->version = $input['version'];
+			$plugin->save();
+
+			return Response::json(['plugin_id' => $plugin->id], 201);
+		}
+		else
+		{
+			return Response::json(['error' => 'validation failed'], 400);	
+		}
 
 	}
 
 
 	/**
 	 * Store a newly created resource in storage.
-	 * @data a json object of plugins
+	 *
 	 * @return Response
 	 */
-	public function postStore($data)
+	public function postStore()
 	{
-		echo $data;
+		//
 	}
 
 
@@ -43,6 +62,16 @@ class PluginController extends \BaseController {
 	 */
 	public function anyShow($id)
 	{
+		$plugin = Plugin::find($id);
+
+		if($plugin)
+		{
+			return Response::json($plugin, 200);	
+		}
+		else
+		{
+			return Response::json(['message' => 'resource not found'], 404);
+		}
 		
 	}
 
@@ -55,7 +84,7 @@ class PluginController extends \BaseController {
 	 */
 	public function postEdit($id)
 	{
-		//
+		
 	}
 
 
@@ -67,7 +96,32 @@ class PluginController extends \BaseController {
 	 */
 	public function postUpdate($id)
 	{
-		//
+		$plugin = Plugin::find($id);
+
+		if($plugin)
+		{
+			$input = Input::only('name', 'download_url', 'home_url', 'version');
+
+			if($plugin->validate($input))
+			{
+				$plugin->name = $input['name'];
+				$plugin->download_url = $input['download_url'];
+				$plugin->home_url = $input['home_url'];
+				$plugin->version = $input['version'];
+				$plugin->save();
+
+				return Response::json(['message' => 'updated'], 204);
+			}
+			else
+			{
+				return Response::json(['error' => 'validation failed'], 400);
+			}
+
+		}
+		else
+		{
+			return Response::json(['message' => 'resource not found'], 404);
+		}
 	}
 
 
@@ -77,10 +131,22 @@ class PluginController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function postDestroy($id)
+	public function postDelete($id)
 	{
-		//
-	}
+		$plugin = Plugin::find($id);
 
+		if($plugin)
+		{
+			$plugin->delete();
+
+			return Response::json(['message' => 'deleted'], 204);
+		}
+		else
+		{
+			return Response::json(['message' => 'resource not found'], 404);	
+		}
+
+
+	}
 
 }

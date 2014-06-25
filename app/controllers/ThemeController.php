@@ -9,7 +9,7 @@ class ThemeController extends \BaseController {
 	 */
 	public function getIndex()
 	{
-		echo 'hurr';
+
 	}
 
 
@@ -20,6 +20,25 @@ class ThemeController extends \BaseController {
 	 */
 	public function postCreate()
 	{
+		
+		$input = Input::only('name', 'download_url', 'home_url', 'version');
+		
+		$theme = new Theme();
+
+		if($theme->validate($input))
+		{
+			$theme->name = $input['name'];
+			$theme->download_url = $input['download_url'];
+			$theme->home_url = $input['home_url'];
+			$theme->version = $input['version'];
+			$theme->save();
+
+			return Response::json(['theme_id' => $theme->id], 201);
+		}
+		else
+		{
+			return Response::json(['error' => 'validation failed'], 400);	
+		}
 
 	}
 
@@ -43,6 +62,16 @@ class ThemeController extends \BaseController {
 	 */
 	public function anyShow($id)
 	{
+		$theme = Theme::find($id);
+
+		if($theme)
+		{
+			return Response::json($theme, 200);	
+		}
+		else
+		{
+			return Response::json(['message' => 'resource not found'], 404);
+		}
 		
 	}
 
@@ -67,7 +96,32 @@ class ThemeController extends \BaseController {
 	 */
 	public function postUpdate($id)
 	{
-		//
+		$theme = Theme::find($id);
+
+		if($theme)
+		{
+			$input = Input::only('name', 'download_url', 'home_url', 'version');
+
+			if($theme->validate($input))
+			{
+				$theme->name = $input['name'];
+				$theme->download_url = $input['download_url'];
+				$theme->home_url = $input['home_url'];
+				$theme->version = $input['version'];
+				$theme->save();
+
+				return Response::json(['message' => 'updated'], 204);
+			}
+			else
+			{
+				return Response::json(['error' => 'validation failed'], 400);
+			}
+
+		}
+		else
+		{
+			return Response::json(['message' => 'resource not found'], 404);
+		}
 	}
 
 
@@ -77,10 +131,22 @@ class ThemeController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function postDestroy($id)
+	public function postDelete($id)
 	{
-		//
-	}
+		$theme = Theme::find($id);
 
+		if($theme)
+		{
+			$theme->delete();
+
+			return Response::json(['message' => 'deleted'], 204);
+		}
+		else
+		{
+			return Response::json(['message' => 'resource not found'], 404);	
+		}
+
+
+	}
 
 }
